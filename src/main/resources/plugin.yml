@@ -1,0 +1,48 @@
+name: DMZ-ReStart
+version: 1.2.0
+main: io.github.dmzrestart.DMZRestartPlugin
+api-version: 1.13
+depend: []
+softdepend: [PlaceholderAPI, LuckPerms, DiscordSRV]
+description: Professional Minecraft server restart management with performance monitoring
+website: https://github.com/YourUsername/DMZ-ReStart
+authors: Cyrusbye
+
+commands:
+  dmzrestart:
+    description: DMZ ReStart management commands
+    usage: /dmzrestart <subcommand>
+    permission: dmzrestart.use
+    aliases: [dmzr, restart-dmz]
+
+permissions:
+  dmzrestart.admin:
+    description: Full access to all DMZ ReStart features
+    default: op
+    children:
+      dmzrestart.restart: true
+      dmzrestart.schedule: true
+      dmzrestart.cancel: true
+      dmzrestart.reload: true
+      dmzrestart.status: true
+  dmzrestart.restart:
+    description: Manually restart the server
+    default: op
+  dmzrestart.schedule:
+    description: Schedule server restarts
+    default: op
+  dmzrestart.cancel:
+    description: Cancel scheduled restarts
+    default: op
+  dmzrestart.reload:
+    description: Reload plugin configuration
+    default: op
+  dmzrestart.status:
+    description: View restart status
+    default: true
+  dmzrestart.bypass:
+    description: Bypass restart warnings
+    default: false
+  dmzrestart.alerts:
+    description: Receive restart alerts
+    default: true
