@@ -1,0 +1,54 @@
+# DMZ ReStart - Professional Server Management Configuration
+# GitHub: https://github.com/YourUsername/DMZ-ReStart
+# Documentation: https://github.com/YourUsername/DMZ-ReStart/wiki
+
+# General Settings
+debug: false
+timezone: "America/New_York"
+backup-config-on-reload: true
+
+# Scheduled restart times (24-hour format HH:MM)
+restart-times:
+  - "04:00"  # 4:00 AM
+  - "12:00"  # 12:00 PM  
+  - "20:00"  # 8:00 PM
+
+# Performance Monitoring
+monitoring:
+  enabled: true
+  check-interval: 30          # Seconds between performance checks
+  tps-threshold: 16.0         # TPS below this triggers restart warning
+  memory-threshold: 85.0      # Memory % above this triggers restart warning
+  consecutive-checks: 3       # Number of failed checks before restart
+  log-performance: false      # Log performance data in debug mode
+  debug-log-interval-hours: 5 # Hours between detailed performance logs
+
+# Emergency Restart Settings
+emergency:
+  enabled: true
+  delay: 30                   # Seconds delay before emergency restart
+  tps-threshold: 12.0         # TPS below this triggers immediate restart
+  memory-threshold: 95.0      # Memory % above this triggers immediate restart
+
+# Warning System
+warnings:
+  enabled: true
+  intervals: [300, 180, 60, 30, 10, 5, 3, 2, 1]  # Warning intervals in seconds
+  sound-enabled: true         # Play warning sounds to players
+
+# External Plugin Integrations
+integrations:
+  placeholderapi:
+    enabled: true             # Enable PlaceholderAPI integration
+  luckperms:
+    enabled: true             # Enable LuckPerms integration
+
+# Data Collection and Metrics
+metrics:
+  enabled: true               # Enable metrics collection and CSV export
+
+# Custom Messages
+messages:
+  restart-warning: "&e&l[WARNING] Server restart in {time}! Please prepare!"
+  restart-now: "&c&l[RESTART] Server restarting NOW! Reconnect in a moment."
+  emergency-restart: "&4&l[EMERGENCY] Emergency restart initiated due to performance issues!"
