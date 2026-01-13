@@ -36,14 +36,3 @@ jobs:
       with:
         name: DMZ-ReStart
         path: target/DMZ-ReStart-*.jar
-
-    - name: Upload to Release
-      if: github.event_name == 'release'
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ github.event.release.upload_url }}
-        asset_path: target/DMZ-ReStart-1.2.0.jar
-        asset_name: DMZ-ReStart-1.2.0.jar
-        asset_content_type: application/java-archive
